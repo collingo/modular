@@ -1,4 +1,4 @@
-define(["mixin"], function(mixin) {
+define(["Test/mixin"], function(mixin) {
 
 	function Test(id) {
 		this.id = id;

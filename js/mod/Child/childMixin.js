@@ -6,6 +6,9 @@ define([], function() {
 		},
 		childB: function() {
 			return "from childMixin";
+		},
+		added: function() {
+			
 		}
 	};
 

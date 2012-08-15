@@ -1,4 +1,4 @@
-define(["Test/test", "Child/child"], function(Test, Child) {
+define(["Backbone", "Test/test", "Child/child"], function(Backbone, Test, Child) {
 
 	window.Test = Test;
 	window.Child = Child;

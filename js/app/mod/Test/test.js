@@ -1,9 +1,10 @@
-define(["Test/mixin"], function(mixin) {
+define(["Underscore", "Test/mixin"], function(_, mixin) {
 
 	function Test(id) {
 		this.id = id;
 	}
 	Test.prototype = {
+		constructor: Test,
 		methodA: function() {
 
 		},

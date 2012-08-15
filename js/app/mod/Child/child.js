@@ -1,5 +1,13 @@
 define([
 
+	// libs
+	"jquery",
+	"Backbone",
+	"Underscore",
+
+	// templates
+	"text!Child/main.html",
+
 	// parent prototype
 	"Test/test",
 
@@ -12,42 +20,74 @@ define([
 
 ], function(
 
+	// libs
+	$,
+	Backbone,
+	_,
+
+	// templates
+	Template,
+
 	// parent prototype
 	Test
 
 	// explicit mixins
 
 	// conditional mixins
-	// !!! DO NOT REFERENCE !!!
 
 ) {
 
-	function Child(id) {
-		Test.call(this, id);
-	}
-	Child.prototype = new Test();
-	Child.prototype.constructor = Child;
-	_.extend(Child.prototype, {
-		childA: function() {
+	var View = Test.extend({
+
+		// template for the item
+		template: _.template(Template),
+
+		// events for each item
+		events: {
+		},
+
+		// init
+		initialize: function() {
+			// re-render the view when the model is updates
+			//this.model.on('change', this.render, this);
+
+			// remove a model when it's destroyed in the collection
+			//this.model.on('destroy', this.remove, this);
+		},
+
+		// render
+		render: function() {
+
+			// put the data in the template
+			this.$el.html(this.template({title: this.id}));
+
+			// return to mainitain chainability
+			return this;
+		},
+
+		// custom methods
+		methodA: function() {
 
 		},
-		childB: function() {
+		methodB: function() {
 
 		},
-		childC: function() {
+		methodC: function() {
 
 		}
-	});
 
-	// extend the prototype with conditional mixins
-	for (var i = 1; i < arguments.length; i++) {
+	}),
+	i;
+
+	// extend the view with conditional mixins
+	for (i = 1; i < arguments.length; i++) {
 
 		// extend the prototype with additional functionality via mixins
 		if(arguments[i]) {
-			_.extend(Child.prototype, arguments[i]);
+			View.extend(arguments[i]);
 		}
-	};
+	}
 
-	return Child;
+	return View;
 
 });

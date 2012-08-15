@@ -1,15 +1,21 @@
-define(["Backbone", "Test/test", "Child/child"], function(Backbone, Test, Child) {
+define(["jquery", "Backbone", "Test/test", "Child/child"], function($, Backbone, Test, Child) {
 
 	window.Test = Test;
 	window.Child = Child;
 
-	var app = {
-		testA: new Test("testA"),
-		testB: new Test("testB"),
-		testC: new Test("testC"),
-		child: new Child("childA")
+	var App = {
+		test: new Test({
+			id: "test"
+		}),
+		child: new Child({
+			id: "Child1"
+		})
 	};
 
-	return app;
+	$("body")
+		.append(App.test.render().el)
+		.append(App.child.render().el);
+
+	return App;
 
 });

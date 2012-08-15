@@ -2,8 +2,8 @@ require.config({
 	paths: {
 
 		// libraries
-		jQuery: "/js/lib/jquery/jquery",
-		Underscore: "/js/lib/lodash/lodash",
+		jquery: "/js/lib/jquery/jquery",
+		Underscore: "/js/lib/underscore/underscore",
 		Backbone: "/js/lib/backbone/backbone",
 
 		// require plugins
@@ -18,13 +18,13 @@ require.config({
 			exports: '_'
 		},
 		'Backbone': {
-			deps: ['Underscore', 'jQuery'],
+			deps: ['Underscore', 'jquery'],
 			exports: 'Backbone'
 		}
 	}
 });
-define(['app'], function(app) {
+require(['app'], function(App) {
 
-	window.app = app;
+	window.app = App;
 
 });

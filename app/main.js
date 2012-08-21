@@ -5,25 +5,25 @@ require.config({
 		// jquery: "/lib/jquery/jquery",
 		// Underscore: "/lib/underscore/underscore",
 		jquery: "/lib/zepto/zepto",
-		Underscore: "/lib/lodash/lodash",
-		Backbone: "/lib/backbone/backbone",
+		underscore: "/lib/lodash/lodash",
+		backbone: "/lib/backbone/backbone",
 
 		// require plugins
 		text: '/lib/require/text',
 
 		// modules
-		"Test" : "mod/Test",
+		"Parent" : "mod/Parent",
 		"Child": "mod/Child"
 	},
 	shim: {
-		'Underscore': {
+		'underscore': {
 			exports: '_'
 		},
 		'jquery': {
 			exports: '$'
 		},
-		'Backbone': {
-			deps: ['Underscore', 'jquery'],
+		'backbone': {
+			deps: ['underscore', 'jquery'],
 			exports: 'Backbone'
 		}
 	}

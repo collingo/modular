@@ -2,14 +2,14 @@ define([
 
 	// libs
 	"jquery",
-	"Backbone",
-	"Underscore",
+	"backbone",
+	"underscore",
 
 	// templates
-	"text!Test/main.html",
+	"text!Parent/main.html",
 
 	// mixins
-	"Test/mixin"
+	"Parent/mixin"
 
 ], function(
 

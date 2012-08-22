@@ -4,31 +4,32 @@ require.config({
 		// libraries
 		// jquery: "/lib/jquery/jquery",
 		// Underscore: "/lib/underscore/underscore",
-		jquery: "/lib/zepto/zepto",
-		underscore: "/lib/lodash/lodash",
-		backbone: "/lib/backbone/backbone",
+		jQuery: "lib/zepto/zepto",
+		underscore: "lib/lodash/lodash",
+		Backbone: "lib/backbone/backbone",
 
 		// require plugins
 		text: '/lib/require/text',
 
 		// modules
-		"Parent" : "mod/Parent",
-		"Child": "mod/Child"
+		"App": "mods/App",
+		"Parent" : "mods/Parent",
+		"Child": "mods/Child"
 	},
 	shim: {
+		'jQuery': {
+			exports: '$'
+		},
 		'underscore': {
 			exports: '_'
 		},
-		'jquery': {
-			exports: '$'
-		},
-		'backbone': {
-			deps: ['underscore', 'jquery'],
+		'Backbone': {
+			deps: ['underscore', 'jQuery'],
 			exports: 'Backbone'
 		}
 	}
 });
-require(['app'], function(App) {
+require(['App/app'], function(App) {
 
 	window.app = App;
 

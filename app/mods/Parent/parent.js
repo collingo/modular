@@ -1,9 +1,9 @@
 define([
 
 	// libs
-	"jquery",
-	"backbone",
+	"jQuery",
 	"underscore",
+	"Backbone",
 
 	// templates
 	"text!Parent/main.html",
@@ -15,8 +15,8 @@ define([
 
 	// libs
 	$,
-	Backbone,
 	_,
+	Backbone,
 
 	// templates
 	Template,

@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "Parent/parent", "Child/child"], function($, Backbone, Parent, Child) {
+define(["jQuery", "Backbone", "Parent/parent", "Child/child"], function($, Backbone, Parent, Child) {
 
 	window.Parent = Parent;
 	window.Child = Child;

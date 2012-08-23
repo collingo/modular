@@ -12,9 +12,9 @@ define(["jQuery", "Backbone", "Parent/parent", "Child/child"], function($, Backb
 		})
 	};
 
-	$("body")
-		.append(App.parent.render().el)
-		.append(App.child.render().el);
+	// $("body")
+	// .append(App.parent.render().el)
+	// .append(App.child.render().el);
 
 	return App;
 

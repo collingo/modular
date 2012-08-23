@@ -3,8 +3,9 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		lint: {
-			// all: ['grunt.js', 'wwwroot_dashboard/assets/script/**/*.js']
-			all: ['grunt.js']
+			grunt: 'grunt.js',
+			base: 'app/*.js',
+			modules: 'app/mods/*/*.js'
 		},
 		jshint: {
 			options: {
@@ -20,7 +21,7 @@ module.exports = function(grunt) {
 				'noarg': false,
 				'noempty': true,
 				'nonew': true,
-				'plusplus': true,
+				'plusplus': false,
 				'quotmark': true,
 				'regexp': true,
 				'undef': true,
@@ -42,12 +43,14 @@ module.exports = function(grunt) {
 				'supernew': true,
 				'validthis': true,
 				'browser': true,
-				'jquery': true
+				'jquery': true,
+				'node': true,
+				'predef': ['Modernizr', 'define', 'require', 'describe', 'it', 'expect']
 			}
 		},
 		csslint: {
 			base_theme: {
-				src: ['wwwroot_dashboard/assets/style/ie/ie8.css'],
+				src: ['app/main.css'],
 				rules: {
 					'box-model': true,
 					'display-property-grouping': true,
@@ -81,13 +84,17 @@ module.exports = function(grunt) {
 					'unique-headings': false
 				}
 			}
+		},
+		jasmine: {
+			app: ['tests/phantom.html']
 		}
 	});
 
 	// load plugins
 	grunt.loadNpmTasks('grunt-css');
+	grunt.loadNpmTasks('grunt-jasmine-task');
 
 	// define tasks
-	grunt.registerTask('default', 'lint');
+	grunt.registerTask('default', 'lint csslint');
 
 };

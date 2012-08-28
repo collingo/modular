@@ -4,7 +4,7 @@ require(['config'], function(config) {
 	require.config(config);
 
 	// start application
-	require(['App/app'], function(App) {
+	require(['AppMod'], function(App) {
 
 		window.app = App;
 

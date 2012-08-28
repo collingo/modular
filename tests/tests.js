@@ -6,8 +6,8 @@ define([
 	 * 
 	 */
 
-	"App/app-spec",
-	"Parent/parent-spec"
+	"App/tests/app-spec",
+	"Parent/tests/parent-spec"
 
 ], function() {
 

@@ -1,6 +1,4 @@
-define(["Parent/parent"], function(app) {
-
-	console.log("Parent spec called");
+define(["ParentMod"], function(app) {
 
 	describe("Parent", function() {
 

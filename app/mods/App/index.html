@@ -6,7 +6,7 @@
 	<title>Modular</title>
 
 	<!-- css -->
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="../../css/main.css">
 	<link rel="stylesheet" media="only screen and (max-width: 390px)" href="css/tiny.css">
 	<link rel="stylesheet" media="only screen and (min-width: 391px) and (max-width: 720px)" href="css/small.css">
 	<link rel="stylesheet" media="only screen and (min-width: 721px) and (max-width: 1024px)" href="css/medium.css">
@@ -14,7 +14,7 @@
 	<link rel="stylesheet" media="only screen and (min-width: 1367px)" href="css/massive.css">
 
 	<!-- Modernizr needs to be defined in the head for IE's sake -->
-	<script src="libs/modernizr/modernizr.js"></script>
+	<script src="../../libs/modernizr/modernizr.js"></script>
 
 </head>
 
@@ -29,8 +29,31 @@
 		<p>App</p>
 	</div>
 
-	<!-- scripts -->
-	<script data-main="js/main" src="libs/require/require.js"></script>
+	<!-- Require -->
+	<script type="text/javascript" src="../../libs/require/require.js"></script>
+
+	<!-- Spec -->
+	<script>
+		/**
+		 * Executes Jasmine tests across local specs files
+		 */
+		require(['../../js/config'], function(config) {
+
+			// alter basepath for tests
+			config.baseUrl = '../';
+
+			// setup global require config
+			require.config(config);
+
+			// pull down tests and execute jasmine
+			require(["App/js/app"], function() {
+
+				console.log("Loaded");
+
+			});
+
+		});
+	</script>
 
 </body>
 

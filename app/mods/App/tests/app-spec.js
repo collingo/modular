@@ -1,6 +1,4 @@
-define(["App/app"], function(app) {
-
-	console.log("App spec called");
+define(["AppMod"], function(app) {
 
 	describe("App", function() {
 

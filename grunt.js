@@ -86,13 +86,41 @@ module.exports = function(grunt) {
 			}
 		},
 		jasmine: {
-			app: ['tests/phantom.html']
+			app: ['app/mods/App/tests/phantom.html'],
+			parent: ['app/mods/Parent/tests/phantom.html']
+		},
+		requirejs: {
+			
+			// directory to save the built files to
+			dir: 'build',
+
+			// root directory for application code
+			appDir: './',
+
+			// root directory for requirejs
+			baseUrl: 'app',
+
+			modules: [{name: 'main'}],
+			
+			// location of main config
+			mainConfigFile: 'app/main.js',
+
+			// inline templates
+			inlineText: true,
+
+			pragmas: {
+				doExclude: true
+			},
+			skipModuleInsertion: false,
+			optimizeAllPluginResources: true,
+			findNestedDependencies: true
 		}
 	});
 
 	// load plugins
 	grunt.loadNpmTasks('grunt-css');
 	grunt.loadNpmTasks('grunt-jasmine-task');
+	grunt.loadNpmTasks('grunt-requirejs');
 
 	// define tasks
 	grunt.registerTask('default', 'lint csslint');

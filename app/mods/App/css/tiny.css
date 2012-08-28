@@ -1,0 +1,10 @@
+body {
+	background-color:yellow;
+}
+
+#tiny {
+	display:block;
+}
+#app {
+	display:none;
+}

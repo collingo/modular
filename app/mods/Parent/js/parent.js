@@ -6,17 +6,10 @@ define([
 	"Backbone",
 
 	// templates
-	"text!Child/main.html",
+	"text!Parent/templates/main.html",
 
-	// parent prototype
-	"Parent/parent",
-
-	// explicit mixins
-
-	// conditional mixins
-	(Modernizr.canvas)?"Child/childMixin":null,
-	(!Modernizr.canvas)?"Child/childMixin":null,
-	(Modernizr.canvas)?"Child/childMixin2":null
+	// mixins
+	"Parent/js/mixin"
 
 ], function(
 
@@ -28,16 +21,12 @@ define([
 	// templates
 	Template,
 
-	// parent prototype
-	Test
-
-	// explicit mixins
-
-	// conditional mixins
+	// mixins
+	mixin
 
 ) {
 
-	var View = Test.extend({
+	var View = Backbone.View.extend({
 
 		// template for the item
 		template: _.template(Template),
@@ -75,18 +64,7 @@ define([
 		methodC: function() {
 
 		}
-
-	}),
-	i;
-
-	// extend the view with conditional mixins
-	for (i = 1; i < arguments.length; i++) {
-
-		// extend the prototype with additional functionality via mixins
-		if(arguments[i]) {
-			View.extend(arguments[i]);
-		}
-	}
+	});
 
 	return View;
 

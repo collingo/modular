@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Parent Tests</title>
+
+	<!-- Jasmine -->
+	<link rel="shortcut icon" type="image/png" href="../../../../libs/jasmine/jasmine_favicon.png">
+	<link rel="stylesheet" type="text/css" href="../../../../libs/jasmine/jasmine.css">
+	<script type="text/javascript" src="../../../../libs/jasmine/jasmine.js"></script>
+	<script type="text/javascript" src="../../../../libs/jasmine/jasmine-html.js"></script>
+	<script>
+		
+		var jasmineEnv = jasmine.getEnv();
+		jasmineEnv.updateInterval = 1000;
+
+		var reporters = {
+			html: jasmine.HtmlReporter,
+			trivial: jasmine.TrivialReporter
+		};
+
+		var reporter = new reporters.html();
+
+		jasmineEnv.addReporter(reporter);
+
+		jasmineEnv.specFilter = function(spec) {
+			return reporter.specFilter(spec);
+		};
+
+	</script>
+
+	<!-- Modernizr -->
+	<script type="text/javascript" src="../../../libs/modernizr/modernizr.js"></script>
+
+	<!-- Require -->
+	<script type="text/javascript" src="../../../libs/require/require.js"></script>
+
+	<!-- Spec -->
+	<script>
+		/**
+		 * Executes Jasmine tests across local specs files
+		 */
+		require(['../../../js/config'], function(config) {
+
+			// alter basepath for tests
+			config.baseUrl = '../../';
+
+			// setup global require config
+			require.config(config);
+
+			// pull down tests and execute jasmine
+			require(["Parent/tests/parent-spec"], function() {
+
+				jasmineEnv.execute();
+
+			});
+
+		});
+	</script>
+
+</head>
+
+<body>
+</body>
+</html>
